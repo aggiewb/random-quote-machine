@@ -32,3 +32,11 @@
 #tweet-quote {
   text-decoration: none;
 }
+
+footer {
+  margin-top: 10px;
+}
+
+footer, footer a {
+  color: #781718;
+}
