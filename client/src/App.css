@@ -7,3 +7,34 @@
 #quote-box {
   width: 400px;
 }
+
+#author {
+  font-weight: bold;
+}
+
+#button-box {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+#new-quote, #tweet-quote {
+  background-color: #1F4720;
+  color: #FFF;
+  border-radius: 30px;
+  box-sizing: border-box;
+  padding: 10px;
+  width: 150px;
+  margin: 5px;
+}
+
+#new-quote {
+  cursor: pointer;
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 1rem;
+  border: none;
+}
+
+#tweet-quote {
+  text-decoration: none;
+}
