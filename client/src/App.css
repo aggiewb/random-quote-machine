@@ -1,5 +1,6 @@
 #quote-box {
   width: 400px;
+  margin-top: 40px;
 }
 
 #author {
@@ -9,7 +10,6 @@
 #button-box {
   display: flex;
   justify-content: space-evenly;
-  flex-wrap: wrap;
 }
 
 #new-quote, #tweet-quote {
@@ -39,4 +39,15 @@ footer {
 
 footer, footer a {
   color: #781718;
+}
+
+@media screen and (max-width: 400px) {
+  #button-box {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #quote-box {
+    width: 300px;
+  }
 }
