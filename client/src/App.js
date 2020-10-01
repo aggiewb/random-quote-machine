@@ -27,17 +27,25 @@ class App extends React.Component {
   
   render(){
     return <main className="App">
-      <QuoteBox quote={this.state.quote} author={this.state.author}/>
+      <QuoteBox quote={this.state.quote} author={this.state.author} getQuote={() => this.getQuote()}/>
     </main>;
   }
 }
 
-function QuoteBox(props){
-  return <section id="quote-box">
-    <p id="text">{props.quote}</p>
-    <p id="author">{props.author}</p>
-    <button id="new-quote">New Quote</button>
-    <a href="twitter.com/intent/tweet" target="blank" id="tweet-quote">Tweet Quote</a>
+class QuoteBox extends React.Component {
+  render(){
+    return <section id="quote-box">
+      <p id="text">{this.props.quote}</p>
+      <p id="author">{this.props.author}</p>
+      <UserActions handleNewQuote={this.props.getQuote}/>
+  </section>;
+  }
+}
+
+function UserActions(props){
+  return <section>
+      <button id="new-quote" onClick={props.handleNewQuote}>New Quote</button>
+      <a href="twitter.com/intent/tweet" target="blank" id="tweet-quote">Tweet Quote</a>
   </section>;
 }
 
