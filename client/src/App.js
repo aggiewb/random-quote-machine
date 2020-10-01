@@ -37,7 +37,7 @@ function QuoteBox(props){
     <p id="text">{props.quote}</p>
     <p id="author">{props.author}</p>
     <button id="new-quote">New Quote</button>
-    <button id="tweet-quote">Tweet Quote</button>
+    <a href="twitter.com/intent/tweet" target="blank" id="tweet-quote">Tweet Quote</a>
   </section>;
 }
 
