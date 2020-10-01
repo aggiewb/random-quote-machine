@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-class App extends React.Component {
+class App extends React.Component{
   constructor(props){
     super(props);
     this.state = {
@@ -36,11 +36,11 @@ class App extends React.Component {
   }
 }
 
-class QuoteBox extends React.Component {
+class QuoteBox extends React.Component{
   render(){
     return <section id="quote-box">
       <p id="text">{this.props.error ? this.props.error : this.props.quote}</p>
-     <p id="author">{this.props.author && this.props.author}</p>
+      <p id="author">{this.props.author && this.props.author}</p>
       <UserActions handleNewQuote={this.props.getQuote} quote={this.props.quote} author={this.props.author}/>
   </section>;
   }
