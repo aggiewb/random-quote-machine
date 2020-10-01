@@ -6,4 +6,7 @@ body {
     background-color: #FCDC4A;
     color: #004966;
     font-family: 'Gloria Hallelujah', cursive;
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
