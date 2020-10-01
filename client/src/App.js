@@ -36,14 +36,14 @@ class QuoteBox extends React.Component {
   render(){
     return <section id="quote-box">
       <p id="text">{this.props.quote}</p>
-      <p id="author">-{this.props.author}</p>
+      <p id="author">{this.props.author}</p>
       <UserActions handleNewQuote={this.props.getQuote}/>
   </section>;
   }
 }
 
 function UserActions(props){
-  return <section>
+  return <section id="button-box">
       <button id="new-quote" onClick={props.handleNewQuote}>New Quote</button>
       <a href="twitter.com/intent/tweet" target="blank" id="tweet-quote">Tweet Quote</a>
   </section>;
