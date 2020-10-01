@@ -36,14 +36,12 @@ class App extends React.Component{
   }
 }
 
-class QuoteBox extends React.Component{
-  render(){
-    return <section id="quote-box">
-      <p id="text">{this.props.error ? this.props.error : this.props.quote}</p>
-      <p id="author">{this.props.author}</p>
-      <UserActions handleNewQuote={this.props.getQuote} quote={this.props.quote} author={this.props.author}/>
-  </section>;
-  }
+function QuoteBox(props){
+  return <section id="quote-box">
+  <p id="text">{props.error ? props.error : props.quote}</p>
+  <p id="author">{props.author}</p>
+  <UserActions handleNewQuote={props.getQuote} quote={props.quote} author={props.author}/>
+</section>;
 }
 
 function UserActions(props){
