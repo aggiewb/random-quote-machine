@@ -6,7 +6,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       quote: '',
-      author: ''
+      author: '',
+      error: ''
     }
   }
 
@@ -20,14 +21,16 @@ class App extends React.Component {
     })
     .then(response => response.json())
     .then(data => {
-      this.setState({quote: data[0].quote});
-      this.setState({author: data[0].character});
+      this.setState({quote: data[0].quote, author: data[0].character});
     })
+    .catch(() => {
+      this.setState({error: 'An error has occured. Please try again later.'})
+    });
   }
   
   render(){
     return <main className="App">
-      <QuoteBox quote={this.state.quote} author={this.state.author} getQuote={() => this.getQuote()}/>
+      <QuoteBox error={this.state.error} quote={this.state.quote} author={this.state.author} getQuote={() => this.getQuote()}/>
       <Footer />
     </main>;
   }
@@ -36,8 +39,8 @@ class App extends React.Component {
 class QuoteBox extends React.Component {
   render(){
     return <section id="quote-box">
-      <p id="text">{this.props.quote}</p>
-      <p id="author">{this.props.author}</p>
+      <p id="text">{this.props.error ? this.props.error : this.props.quote}</p>
+     <p id="author">{this.props.author && this.props.author}</p>
       <UserActions handleNewQuote={this.props.getQuote} quote={this.props.quote} author={this.props.author}/>
   </section>;
   }
