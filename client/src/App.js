@@ -36,7 +36,7 @@ class QuoteBox extends React.Component {
   render(){
     return <section id="quote-box">
       <p id="text">{this.props.quote}</p>
-      <p id="author">{this.props.author}</p>
+      <p id="author">-{this.props.author}</p>
       <UserActions handleNewQuote={this.props.getQuote}/>
   </section>;
   }
