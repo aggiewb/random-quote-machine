@@ -10,7 +10,7 @@ const EXPECTED_QUOTE = 'Boop';
 const EXPECTED_AUTHOR = 'Steven B';
 const EXPECTED_ERROR = 'An error has occured. Please try again later.';
 
-it('renders', () => {
+it('App deeply renders as a smoke test', () => {
   mount(<App />);
 });
 
