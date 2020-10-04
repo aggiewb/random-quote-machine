@@ -14,7 +14,7 @@ it('renders', () => {
   mount(<App />);
 });
 
-it('should shallow render App class child components, and initialize their props', () => {
+it('should render App class child components, and initialize their props', () => {
   const app = shallow(<App />);
   
   const quoteBox = app.find('QuoteBox');
@@ -66,4 +66,13 @@ it('should assign a String value to the QuoteBox error prop', (done) => {
     expect(quoteBox.prop('error')).toEqual(EXPECTED_ERROR);
     done();
   });
+});
+
+it('should render QuoteBox p tag elements with ids of text and author containing the set quote and author props when error prop is falsy', () => {
+  const quoteBox = shallow(<QuoteBox quote={EXPECTED_QUOTE} author={EXPECTED_AUTHOR} error={''} />);
+  const text = quoteBox.find('#text');
+  const author = quoteBox.find('#author');
+
+  expect(text.text()).toEqual(EXPECTED_QUOTE);
+  expect(author.text()).toEqual(EXPECTED_AUTHOR);
 });
