@@ -76,3 +76,8 @@ it('should render QuoteBox p tag elements with ids of text and author containing
   expect(text.text()).toEqual(EXPECTED_QUOTE);
   expect(author.text()).toEqual(EXPECTED_AUTHOR);
 });
+
+//TODO: should render QuoteBox p tag elements containing error prop when it is truthy
+//TODO: should render UserActions and pass props
+//TODO: should render expect UserAction elements on load
+//TODO: should be able to click button within UserAction
