@@ -88,14 +88,28 @@ it('should render QuoteBox p tag elements containing error prop when it is truth
 });
 
 it('should render UserActions and pass props, handleNewQuote, quote and author', () => {
-  const quoteBox = shallow(<QuoteBox quote={EXPECTED_QUOTE} author={EXPECTED_AUTHOR} error={''} />);
+  const quoteBox = shallow(<QuoteBox quote={EXPECTED_QUOTE} author={EXPECTED_AUTHOR} error={''} getQuote={jest.fn()}/>);
   const userActions = quoteBox.find('UserActions');
   
   expect(userActions.exists()).toEqual(true);
-  expect(userActions.props('handleNewQuote')).toBeDefined();
+  expect(userActions.prop('handleNewQuote')).toBeDefined();
   expect(userActions.prop('quote')).toEqual(EXPECTED_QUOTE);
   expect(userActions.prop('author')).toEqual(EXPECTED_AUTHOR);
 });
-//TODO: should render UserActions and pass props
-//TODO: should render expect UserAction elements on load
-//TODO: should be able to click button within UserAction
+
+it('should render expected UserAction elements with ids #new-quote and #tweet-quote', () => {
+  const userAction = shallow(<UserActions quote={EXPECTED_QUOTE} author={EXPECTED_AUTHOR}/>);
+  const newQuote = userAction.find('#new-quote');
+  const tweetQuote = userAction.find('#tweet-quote');
+
+  expect(newQuote.exists()).toEqual(true);
+  expect(tweetQuote.prop('href')).toEqual(`https://twitter.com/intent/tweet?text=${EXPECTED_QUOTE} -${EXPECTED_AUTHOR}`);
+});
+
+it('should be able to click button with the id new-quote within UserAction to call handleNewQuote()', () => {
+  const getQuote = jest.fn();
+  const userActions = shallow(<UserActions handleNewQuote={getQuote}/>);
+
+  userActions.find('#new-quote').simulate('click');
+  expect(getQuote).toHaveBeenCalled();
+});
