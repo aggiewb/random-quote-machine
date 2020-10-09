@@ -9,6 +9,7 @@ class App extends React.Component{
       author: '',
       error: ''
     }
+    this.getQuote = this.getQuote.bind(this);
   }
 
   componentDidMount(){
@@ -30,7 +31,7 @@ class App extends React.Component{
   
   render(){
     return <main className="App">
-      <QuoteBox error={this.state.error} quote={this.state.quote} author={this.state.author} getQuote={() => this.getQuote()}/>
+      <QuoteBox error={this.state.error} quote={this.state.quote} author={this.state.author} getQuote={this.getQuote}/>
       <Footer />
     </main>;
   }
