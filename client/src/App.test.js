@@ -85,7 +85,17 @@ it('should render QuoteBox p tag elements containing error prop when it is truth
   expect(text.text()).toEqual(EXPECTED_ERROR);
   expect(author.text()).toEqual('');
   expect(author.text()).toBeFalsy();
-})
+});
+
+it('should render UserActions and pass props, handleNewQuote, quote and author', () => {
+  const quoteBox = shallow(<QuoteBox quote={EXPECTED_QUOTE} author={EXPECTED_AUTHOR} error={''} />);
+  const userActions = quoteBox.find('UserActions');
+  
+  expect(userActions.exists()).toEqual(true);
+  expect(userActions.props('handleNewQuote')).toBeDefined();
+  expect(userActions.prop('quote')).toEqual(EXPECTED_QUOTE);
+  expect(userActions.prop('author')).toEqual(EXPECTED_AUTHOR);
+});
 //TODO: should render UserActions and pass props
 //TODO: should render expect UserAction elements on load
 //TODO: should be able to click button within UserAction
