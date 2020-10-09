@@ -77,7 +77,15 @@ it('should render QuoteBox p tag elements with ids of text and author containing
   expect(author.text()).toEqual(EXPECTED_AUTHOR);
 });
 
-//TODO: should render QuoteBox p tag elements containing error prop when it is truthy
+it('should render QuoteBox p tag elements containing error prop when it is truthy', () => {
+  const quoteBox = shallow(<QuoteBox quote={''} author={''} error={EXPECTED_ERROR} />);
+  const text = quoteBox.find('#text');
+  const author = quoteBox.find('#author');
+
+  expect(text.text()).toEqual(EXPECTED_ERROR);
+  expect(author.text()).toEqual('');
+  expect(author.text()).toBeFalsy();
+})
 //TODO: should render UserActions and pass props
 //TODO: should render expect UserAction elements on load
 //TODO: should be able to click button within UserAction
